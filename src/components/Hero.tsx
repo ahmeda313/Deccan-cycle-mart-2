@@ -1,4 +1,4 @@
-import React from 'react';
+import {motion} from "framer-motion"
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
@@ -18,10 +18,13 @@ export default function Hero() {
             <p className="text-xl text-gray-200 mb-8 [text-shadow:_1px_1px_2px_rgb(0_0_0_/_50%)]">
               Discover our premium selection of bikes for every terrain and riding style
             </p>
-            <button className="group bg-blue-600 text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-blue-700 transition-all duration-300 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transform hover:scale-105">
+            <motion.button className="group bg-blue-600 text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2"
+            whileHover={{scale:1.2}}
+            transition={{ type: "spring", stiffness: 500 }}
+            >
               Shop Now
               <ArrowRight size={20} className="transform transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

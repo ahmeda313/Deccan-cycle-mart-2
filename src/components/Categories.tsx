@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mountain, Building, AudioWaveform, Trophy } from 'lucide-react';
 
 
