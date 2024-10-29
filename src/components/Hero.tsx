@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <div className="relative h-[500px] md:h-[600px] bg-gray-900 overflow-hidden">
+    <div className="relative h-[600px] bg-gray-900 overflow-hidden">
       <img
         src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1600&auto=format&fit=crop&q=80"
         alt="Mountain bike on trail"

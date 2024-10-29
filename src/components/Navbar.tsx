@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
+import {motion} from "framer-motion"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,13 +16,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`h-16 pt-3 sticky top-0 z-50 transition-all duration-300 ${
+    <nav className={`h-auto py-3 sticky top-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/80 backdrop-blur-2xl shadow-lg w-10/12 rounded-lg mx-auto' : 'bg-white'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between">
           <div className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Deccan
             </span>
           </div>
@@ -62,23 +63,23 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div
-        className={`md:hidden transform transition-all duration-300 ease-in-out ${
-          isOpen ? 'h-auto opacity-100' : 'hidden h-0 opacity-0'
-        }`}
+      <motion.div
+        className={`md:hidden ${isScrolled ?" rounded-b-lg":" "}`}
+        animate={{height:isOpen?"auto":"0", opacity:isOpen?1:0}}
+        transition={{ type: "spring", stiffness: 200 }}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {['Home', 'Bikes', 'Accessories', 'About', 'Contact'].map((item) => (
             <a
               key={item}
               href="#"
-              className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-300"
+              className="block px-3 py-2 text-black hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-300"
             >
               {item}
             </a>
           ))}
         </div>
-      </div>
+      </motion.div>
     </nav>
   );
 }
